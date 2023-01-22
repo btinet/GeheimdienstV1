@@ -10,8 +10,7 @@
    2. [Auftrag](#auftrag)
    3. [Anfrage](#anfrage)
 
-Jede Java Klasse wird wie im Beispiel definiert, wobei jede Klasse aus
-einem Klassenkopf und einem Klassenkörper besteht.
+Jede Java Klasse besteht aus einem Klassenkopf und einem Klassenkörper.
 
 ## Klassenkopf
 
@@ -31,6 +30,7 @@ Die Attribute und Methoden der Klassen werden innerhalb der geschweiften
 Klammern notiert. Der Klassenkörper folgt unmittelbar dem Klassenkopf.
 
 ````java
+// Klassenname.java
 public class Klassenname // Klassenkopf
 {    
     // Klassenkörper    
@@ -65,6 +65,7 @@ Da der Agentenname eine Zeichenkette sein soll, setzen wir als Datentyp ``String
 
 
 ````java
+// Agent.java
 public class Agent // Klassenkopf
 {
     public String name; // Attribut (Datentyp attributName)
@@ -77,10 +78,9 @@ Methoden werden im Klassenkörper notiert und haben denselben formalen Aufbau wi
 selbst. Sie bestehen also aus einem Methodenkopf und einem Methodenkörper.
 
 ````java
-public class Agent // Klassenkopf
+// Klassenname.java
+public class Klassenname // Klassenkopf
 {
-
-    public String name; // Attribut (Datentyp attributName)
     
     public Rückgabedatentyp methodenName // Methodenkopf
             (
@@ -107,6 +107,7 @@ Da Constructor-Methoden immer die eigene Klasse zurückgeben, fehlt hier der Rü
 Unsere Klasse ``Agent`` könnte also folgenden Constructor haben:
 
 ````java
+// Agent.java
 public class Agent // Klassenkopf
 {
     public String name; // Attribut
