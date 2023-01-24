@@ -104,7 +104,7 @@ Klasse.
 
 Da Constructor-Methoden immer die eigene Klasse zurückgeben, fehlt hier der Rückgabetyp.
 
-Unsere Klasse ``Agent`` könnte also folgenden Constructor haben:
+Unsere Klasse [Agent](../src/fachklassen/Agent.java) könnte also folgenden Constructor haben:
 
 ````java
 // Agent.java
