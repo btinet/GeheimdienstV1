@@ -158,13 +158,12 @@ implementieren.
 
 ````java
 // Agent.java
-public class Agent // Klassenkopf
+public class Agent
 {
-    protected String name; // Attribut
+    protected String name;
     
-    public Agent() // Constructor, Methodenkopf
+    public Agent()
     {
-        // Constructor, Methodenkörper
     }
     
     public void setName(String name)
@@ -181,13 +180,12 @@ auch eine andere Herangehensweise denkbar.
 
 ````java
 // Agent.java
-public class Agent // Klassenkopf
+public class Agent
 {
-   protected String name; // Attribut
+   protected String name;
 
-   public Agent() // Constructor, Methodenkopf
+   public Agent()
    {
-      // Constructor, Methodenkörper
    }
 
    public void setName(int code)
