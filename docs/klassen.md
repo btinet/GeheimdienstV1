@@ -139,7 +139,75 @@ Wir können also Methoden unterscheiden in **Aufträge** und **Anfragen**.
 
 ### Auftrag
 
+Aufträge sind dadurch gekennzeichnet, dass Sie:
 
+1. keinen Rückgabewert (*void*)
+2. meistens wenigstens einen Parameter
+
+erwarten.
+
+Setzen wir einmal das Attribut ``name`` auf **protected**.
+Nun können wir nicht mehr direkt auf das Attribut zugreifen.
+Stattdessen verwenden wir eine sogenannte Set-Methode (Auftrag),
+um den Namen des Agentenobjekts festzulegen.
+
+Warum eigentlich **protected**? Ich zwinge den Benutzer,
+die Get- und Set-Methoden zu verwenden, da ich mir vorbehalte,
+weitere Algorithmen zum Setzen und Auslesen des Attributs zu
+implementieren.
+
+````java
+// Agent.java
+public class Agent // Klassenkopf
+{
+    protected String name; // Attribut
+    
+    public Agent() // Constructor, Methodenkopf
+    {
+        // Constructor, Methodenkörper
+    }
+    
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+}
+````
+
+Über die Set-Methode ``setName()`` können wir nun den
+Namen des Agenten festlegen. Als Parameter wird derselbe
+Datentyp übergeben, den das Attribut hat. Es wäre aber
+auch eine andere Herangehensweise denkbar.
+
+````java
+// Agent.java
+public class Agent // Klassenkopf
+{
+   protected String name; // Attribut
+
+   public Agent() // Constructor, Methodenkopf
+   {
+      // Constructor, Methodenkörper
+   }
+
+   public void setName(int code)
+   {
+      
+      // Gegenbeispiel für den Fall, wo der Parameterdatentyp abweicht. 
+      switch (code) {
+         case 1 -> this.name = "Bond";
+         case 2 -> this.name = "Goldfinger";
+         case 3 -> this.name = "Batman";
+         default -> {
+            this.name = "Generischer Agent";
+            System.err.println("Eingegebener Code '" + code + "' ist ungültig!");
+         }
+      }
+      
+   }
+   
+}
+````
 
 ### Anfrage
 
