@@ -135,7 +135,7 @@ Da die Constructor-Methode nur ihre Klasse zurückgibt (ähnliches Verhalten wie
 handelt es sich hier also um einen sogenannten Auftrag. Denn es wurde mit ``Agent bond = new Agent()``
 der Auftrag erteilt, eine neue Instanz vom Typ Agent zu erstellen.
 
-Wir können also Methoden unterscheiden in **Aufträge** und **Anfragen**.
+Wir können also Methoden unterteilen in **Aufträge** und **Anfragen**.
 
 ### Auftrag
 
@@ -206,6 +206,77 @@ public class Agent // Klassenkopf
       
    }
    
+}
+````
+
+#### Method-Chaining
+
+Manchmal kann es sein, dass sehr viele Setter (*set-Methoden*) eines Objekts angestoßen werden
+müssen. Dann bietet sich an, nicht **void** zurückzugeben, sondern das Objekt selbst.
+
+Bisher:
+
+````java
+// Start.java
+public class Start
+{
+    
+   public void main(String[] vars) 
+   {
+       Agent bond = new Agent();
+       
+       // Setter geben void zurück
+       bond.setName("Bond");
+       bond.setVorname("James");
+       bond.addFahrzeug(new Motorad());
+       bond.addFahrzeug(new PKW());
+
+   }   
+   
+}
+````
+
+Mit Method-Chaining:
+
+````java
+// Start.java
+public class Start
+{
+    
+   public void main(String[] vars) 
+   {
+       Agent bond = new Agent();
+
+      // Setter geben Agent zurück
+      bond
+              .setName("Bond")
+              .setVorname("James")
+              .addFahrzeug(new Motorad())
+              .addFahrzeug(new PWK())
+      ;
+   }   
+   
+}
+````
+
+Die Methode ``setName()`` sähe dann folgendermaßen aus:
+
+````java
+// Agent.java
+public class Agent
+{
+    protected String name; 
+    
+    public Agent() 
+    {
+    }
+    
+    public Agent setName(String name)
+    {
+        this.name = name;
+        
+        return this; // statt void wird 'Agent' zurückgegeben.
+    }
 }
 ````
 
