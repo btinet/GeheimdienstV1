@@ -9,7 +9,7 @@
    1. [Constructor](#constructor)
    2. [Auftrag](#auftrag)
    3. [Anfrage](#anfrage)
-5. [Überladen von Methoden](#berladen-von-methoden)
+5. [Überladen von Methoden](#method-overloading)
 
 Jede Java Klasse besteht aus einem Klassenkopf und einem Klassenkörper.
 
@@ -332,6 +332,6 @@ public class Agent
 
 **Du bist dran**: implementiere weitere Attribute sowie dessen Setter und Getter
 
-## Überladen von Methoden
+## Method Overloading
 
 ...folgt
