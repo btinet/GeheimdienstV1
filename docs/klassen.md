@@ -328,3 +328,9 @@ public class Agent
         
 }
 ````
+
+**Du bist dran**: implementiere weitere Attribute sowie dessen Setter und Getter
+
+## Überladen von Methoden
+
+...folgt
