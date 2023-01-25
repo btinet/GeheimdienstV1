@@ -27,7 +27,11 @@ public class Start {
         
        // Fahrzeug ohne Zubehoer
         Fahrzeug auto1 = new Fahrzeug("B-TK 08", 50, 3);
-        
+
+        agent007.addFahrzeug(1, new Fahrzeug("BMW",50,5));
+        agent007.addFahrzeug(2, new Fahrzeug("BMW",50,5));
+        agent007.addFahrzeug(3, new Fahrzeug("BMW",50,5));
+
         /* Fahrzeug mit Zubehör
             realisiert als Aggregation:
             Das Zubehör-Objekt wird erzeugt und existiert unabhängig vom Fahrzeug-Objekt

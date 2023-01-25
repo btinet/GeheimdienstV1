@@ -333,5 +333,29 @@ public class Agent
 
 ## Method Overloading
 
+Jeder Agent soll bis zu zwei Fahrzeuge haben dürfen. Überlegen wir kurz, welchen Datentyp
+wir dafür dem entsprechenden Attribut geben möchten.
 
-...folgt
+````java
+// Agent.Java
+public class Agent
+{
+    
+   private int anzahlFahrzeuge = 2;
+   protected Fahrzeug[] fahrzeuge = new Fahrzeug[anzahlFahrzeuge];
+
+   public void addFahrzeug(int position, Fahrzeug fahrzeug)
+   {
+      if(position > 0 && position <= this.anzahlFahrzeuge)
+      {
+         this.fahrzeuge[position-1] = fahrzeug;
+         System.out.println("Fahrzeug an Position " + position + " von " + this.anzahlFahrzeuge + " platziert.");
+      }
+      else
+      {
+         System.err.println("Die Fuhrparkposition muss mindestens 1 und maximal " + this.anzahlFahrzeuge + " sein.");
+      }
+   }
+   
+}
+````
