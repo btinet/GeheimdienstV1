@@ -316,15 +316,14 @@ public class Agent
     {
     }
 
-   public Agent setName(String name)
+   public vois setName(String name)
    {
       this.name = name;
-      return this; // statt void wird 'Agent' zurückgegeben.
    }
     
-    public String getName() // Der Rückgabe-Datentyp ist 'String', da der Datentyp des Attributs auch 'String' ist
+    public String getName()
     {
-        return this.name; // Gibt den Inhalt des Attributs 'name' zurück
+        return this.name;
     }
         
 }
@@ -333,5 +332,6 @@ public class Agent
 **Du bist dran**: implementiere weitere Attribute sowie dessen Setter und Getter
 
 ## Method Overloading
+
 
 ...folgt
