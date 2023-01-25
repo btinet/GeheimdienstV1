@@ -284,7 +284,7 @@ Nun haben wir dem Agenten-Objekt einen Namen gegeben, allerdings fehlt uns noch 
 um diesen wieder auszulesen. Hier kommt unser Getter (Anfrage) zum tragen.
 
 Im Gegensatz zum Auftrag wollen wir jetzt den Inhalt eines Attributs auslesen. Mit anderen Worten:
-Die get-Methode gibt **nicht* void, sondern den Datentyp des Attributs zurück.
+Die get-Methode gibt **nicht** void, sondern den Datentyp des Attributs zurück.
 
 ````java
 // Agent.java
