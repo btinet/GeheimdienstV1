@@ -280,3 +280,51 @@ public class Agent
 
 ### Anfrage
 
+Nun haben wir dem Agenten-Objekt einen Namen gegeben, allerdings fehlt uns noch eine Methode,
+um diesen wieder auszulesen. Hier kommt unser Getter (Anfrage) zum tragen.
+
+Im Gegensatz zum Auftrag wollen wir jetzt den Inhalt eines Attributs auslesen. Mit anderen Worten:
+Die get-Methode gibt **nicht* void, sondern den Datentyp des Attributs zurück.
+
+````java
+// Agent.java
+public class Agent
+{
+    protected String name; 
+    
+    public Agent() 
+    {
+    }
+    
+    public String getName() // Der Rückgabe-Datentyp ist 'String', da der Datentyp des Attributs auch 'String' ist
+    {
+        return this.name; // Gibt den Inhalt des Attributs 'name' zurück
+    }
+}
+````
+
+Die komplette Klasse [Agent](../src/fachklassen/Agent.java) sieht bis hierher nun so aus:
+
+````java
+// Agent.java
+public class Agent
+{
+    protected String name; 
+    
+    public Agent() 
+    {
+    }
+
+   public Agent setName(String name)
+   {
+      this.name = name;
+      return this; // statt void wird 'Agent' zurückgegeben.
+   }
+    
+    public String getName() // Der Rückgabe-Datentyp ist 'String', da der Datentyp des Attributs auch 'String' ist
+    {
+        return this.name; // Gibt den Inhalt des Attributs 'name' zurück
+    }
+        
+}
+````
