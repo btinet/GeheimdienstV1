@@ -32,13 +32,22 @@ public class Start {
         agent007.addFahrzeug(2, new Fahrzeug("BMW",50,5));
         agent007.addFahrzeug(3, new Fahrzeug("BMW",50,5));
 
+
+
         /* Fahrzeug mit Zubehör
             realisiert als Aggregation:
             Das Zubehör-Objekt wird erzeugt und existiert unabhängig vom Fahrzeug-Objekt
         */
         Zubehoer cdWechsler1 = new Zubehoer("Wexx", "Skoda", 100.0);
         Fahrzeug auto2 = new Fahrzeug ("B-TK 02", 50, 2, cdWechsler1);
-        
+
+        agent007.addFahrzeugToList(auto1);
+        agent007.addFahrzeugToList(auto2);
+        agent007.addFahrzeugToList(1, auto2);
+        agent007.addFahrzeugToList(auto2);
+        System.out.println("Aktuelle Fuhrparkgröße: " + agent007.getAktuelleAnzahlFahrzeuge());
+        agent007.removeFromFahrzeugList(1);
+        System.out.println("Aktuelle Fuhrparkgröße: " + agent007.getAktuelleAnzahlFahrzeuge());
         /* Fahrzeug mit Zubehör
          realisiert als Komposition:
         Das Zubehör-Objekt wird während der Erzeugung des Fahrzeug-Objektes erzeugt.
