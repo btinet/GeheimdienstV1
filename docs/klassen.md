@@ -357,4 +357,37 @@ Welcher Datentyp wäre besser geeignet und warum?
 
 ### Variante B
 
+````java
+// Agent.java
+public class Agent
+{
 
+   public void addFahrzeug(Fahrzeug fahrzeug)
+   {
+      if(this.fahrzeugListe.size() < this.anzahlFahrzeuge)
+      {
+         this.fahrzeugListe.add(fahrzeug);
+         System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' dem Fuhrpark von " + this.getName() + " hinzugefügt.");
+      }
+      else
+      {
+         System.err.println("Der Fuhrpark ist voll. Nicht mehr als " + this.anzahlFahrzeuge + " erlaubt.");
+      }
+   }
+
+   public void addFahrzeug(int position, Fahrzeug fahrzeug)
+   {
+      try {
+         if(position <= this.anzahlFahrzeuge) {
+            this.fahrzeugListe.set(position-1, fahrzeug);
+            System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + position + " gesetzt.");
+         } else {
+            System.err.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
+         }
+      } catch (IndexOutOfBoundsException e){
+         System.err.println("Index existiert (noch) nicht. Versuche lieber 'addFahrzeug(Fahrzeug fahrzeug)';");
+      }
+   }
+    
+}
+````

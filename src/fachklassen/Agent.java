@@ -56,7 +56,6 @@ public class Agent {
      * @param fahrzeug Fahrzeug, dass der Liste hinzugefügt werden soll.
      */
     public void addFahrzeug(Fahrzeug fahrzeug) {
-        System.out.println("aktuelle Menge: " + this.getAktuelleAnzahlFahrzeuge());
         if(this.fahrzeugListe.size() < this.anzahlFahrzeuge)
         {
             this.fahrzeugListe.add(fahrzeug);
