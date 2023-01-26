@@ -6,21 +6,19 @@ import java.util.List;
 
 public class Agent {
  // Deklaration von Attributen
-private String name;
-private String vorname;
-private int agentenNr;
+    private String name;
+    private String vorname;
+    private int agentenNr;
 
-//Refererenzattribut für Objektbeziehung
-private Fahrzeug fahrzeug;
 
+    // Definiere Anzahl der maximalen Fahrzeuge
     private final int anzahlFahrzeuge = 2;
-    protected Fahrzeug[] fahrzeuge = new Fahrzeug[anzahlFahrzeuge];
 
+    // Liste der Fahrzeugobjekte
     protected ArrayList<Fahrzeug> fahrzeugListe = new ArrayList<>();
  
     
-// Konstruktor (einer oder mehrere (Überladen von Methoden))
-
+    // Konstruktor (einer oder mehrere (Überladen von Methoden))
     public Agent() {
         // Initialisieren der Attribute (erstmalige Zuweisung eines Wertes)
         this.name = "Bond";
@@ -37,36 +35,28 @@ private Fahrzeug fahrzeug;
        this.name = nachname;
        this.agentenNr = agentenNr;
     }
-    
        
-//Methoden
-    
-    // Zuweisungsmethode für Assoziation zwischen Agent-Objekt und Fahrzeug-Objekt
-    
-    public void setFahrzeug(Fahrzeug fahrzeug){
-        this.fahrzeug = fahrzeug;
-    
-    }
-    
-    public Fahrzeug getFahrzeug(){
-        return this.fahrzeug;
+    //Methoden
+
+    /**
+     *
+     * @param position Position, von der ein Fahrzeug zurückgegeben werden soll.
+     * @return Gibt ein Fahrzeug-Objekt zurück.
+     */
+    public Fahrzeug getFahrzeug(int position) {
+        return this.fahrzeugListe.get(position);
     }
 
-    public void addFahrzeug(int position, Fahrzeug fahrzeug)
-    {
-        if(position > 0 && position <= this.anzahlFahrzeuge)
-        {
-            this.fahrzeuge[position-1] = fahrzeug;
-            System.out.println("Fahrzeug an Position " + position + " von " + this.anzahlFahrzeuge + " platziert.");
-        }
-        else
-        {
-            System.err.println("Die Fuhrparkposition muss mindestens 1 und maximal " + this.anzahlFahrzeuge + " sein.");
-        }
+    public ArrayList<Fahrzeug> getFahrzeugeAsList() {
+        return this.fahrzeugListe;
     }
 
-    public void addFahrzeugToList(Fahrzeug fahrzeug)
-    {
+    /**
+     *
+     * @param fahrzeug Fahrzeug, dass der Liste hinzugefügt werden soll.
+     */
+    public void addFahrzeug(Fahrzeug fahrzeug) {
+        System.out.println("aktuelle Menge: " + this.getAktuelleAnzahlFahrzeuge());
         if(this.fahrzeugListe.size() < this.anzahlFahrzeuge)
         {
             this.fahrzeugListe.add(fahrzeug);
@@ -78,8 +68,30 @@ private Fahrzeug fahrzeug;
         }
     }
 
-    public void removeFromFahrzeugList(int position)
-    {
+    /**
+     *
+     * @param position Position, der ein Fahrzeug zugeordnet werden soll.
+     * @param fahrzeug Fahrzeug, dass der Liste hinzugefügt werden soll.
+     */
+    public void addFahrzeug(int position, Fahrzeug fahrzeug) {
+        try {
+            if(position <= this.anzahlFahrzeuge) {
+                this.fahrzeugListe.set(position-1, fahrzeug);
+                System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + position + " gesetzt.");
+            } else {
+                System.err.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
+            }
+        } catch (IndexOutOfBoundsException e){
+            System.err.println("Index existiert (noch) nicht. Versuche lieber 'addFahrzeug(Fahrzeug fahrzeug)';");
+        }
+
+    }
+
+    /**
+     *
+     * @param position Position, an der ein Fahrzeug entfernt werden soll.
+     */
+    public void removeFahrzeug(int position) {
         if(position >= 0 && position <= this.fahrzeugListe.size())
         {
             System.out.println("Fahrzeug mit dem Kennzeichen '" + this.fahrzeugListe.get(position).getKennzeichen() + "' an Position " + position + " entfernt.");
@@ -91,48 +103,44 @@ private Fahrzeug fahrzeug;
         }
     }
 
-    public int getAktuelleAnzahlFahrzeuge()
-    {
+    /**
+     *
+     * @return Gibt die aktuelle Anzahl der Fahrzeuge zurück.
+     */
+    public int getAktuelleAnzahlFahrzeuge() {
         return this.fahrzeugListe.size();
     }
 
+    /**
+     *
+     * @return Gibt die maximale Anzahl möglicher Fahrzeuge zurück.
+     */
     public int getMaxAnzahlFahrzeuge()
     {
         return this.anzahlFahrzeuge;
     }
 
-    public void addFahrzeugToList(int position, Fahrzeug fahrzeug)
-    {
-        if(position <= this.anzahlFahrzeuge)
-        {
-            this.fahrzeugListe.set(position, fahrzeug);
-            System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' dem Fuhrpark von " + this.getName() + " an Position " + position + " hinzugefügt/ersetzt.");
-        }
-        else
-        {
-            System.err.println("Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
-        }
-    }
-
     public String getName() {
         return name;
     }
-    
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
-    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getVorname() {
         return vorname;
+    }
+
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
     }
 
     public int getAgentenNr() {
         return agentenNr;
     }
 
-    public String datenAnzeigen(){
-        return "Test";
+    public void setAgentenNr(int agentenNr) {
+        this.agentenNr = agentenNr;
     }
-   
 }
