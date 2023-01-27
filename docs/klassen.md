@@ -392,3 +392,11 @@ public class Agent
 ArrayLists sind sehr dynamisch. Daher ist es hier erforderlich, einen Algorithmus zu entwickeln,
 der die maximal mögliche Anzahl der Einträge steuert. Die Manipulation der Einträge ist
 dagegen äußerst einfach.
+
+**Achtung**: Ist dir aufgefallen, dass in Variante B eine Methode doppelt vorkommt?
+Nein, keine Sorge, das ist kein Fehler. Denn, es werden jeweils unterschiedliche
+Parameter erwartet. ``JAVA`` unterscheidet nämlich nicht zwischen Methodennamen allein,
+sondern zieht den gesamten Methoden-Kopf zum Vergleich heran.
+
+Genau dieses mehrfache Vergeben von Methodennamen nennen wir auch **Überladen von Methoden**.
+Durch das Überladen von Methoden schaffen...
