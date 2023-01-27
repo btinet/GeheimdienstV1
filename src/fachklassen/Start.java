@@ -32,6 +32,8 @@ public class Start {
         agent007.addFahrzeug(new Fahrzeug("B-TK0815",50,5));
         agent007.addFahrzeug(new Fahrzeug("B-TKA301",50,5));
         agent007.addFahrzeug(2, new Fahrzeug("BMW",50,5));
+        agent007.removeFahrzeug(1);
+        agent007.addFahrzeug(new Fahrzeug("LDS-0815",10,10));
 
         ArrayList<Fahrzeug> bondFahrzeuge = agent007.getFahrzeugeAsList();
 

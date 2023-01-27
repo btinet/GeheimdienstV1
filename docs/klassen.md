@@ -341,8 +341,10 @@ wir dafür dem entsprechenden Attribut geben möchten.
 public class Agent
 {
 
+    // Variante A
     protected Fahrzeug[] fahrzeugListe = new Fahrzeug[2];
     
+    // Variante B
     protected ArrayList<Fahrzeug> fahrzeugListe = new ArrayList<>();
    
 }
@@ -351,43 +353,42 @@ public class Agent
 **Du bist dran**: Überlege dir die Vor- und Nachteile des jeweiligen Datentyps.
 Welcher Datentyp wäre besser geeignet und warum?
 
+Gibt es weitere Möglichkeiten?
+
 ### Variante A
 
+````java
+// Variante A
+public class Agent
+{
+   protected Fahrzeug[] fahrzeugListe = new Fahrzeug[2];
+}
+````
 
+Eine Sammlung ist leicht implementiert, die Manipulation der Einträge ist jedoch wesentlich
+komplizierter, da die Sammlung sehr statisch ist.
 
 ### Variante B
 
 ````java
-// Agent.java
+// Variante B
 public class Agent
 {
+   protected ArrayList<Fahrzeug> fahrzeugListe = new ArrayList<>();
 
    public void addFahrzeug(Fahrzeug fahrzeug)
    {
-      if(this.fahrzeugListe.size() < this.anzahlFahrzeuge)
-      {
-         this.fahrzeugListe.add(fahrzeug);
-         System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' dem Fuhrpark von " + this.getName() + " hinzugefügt.");
-      }
-      else
-      {
-         System.err.println("Der Fuhrpark ist voll. Nicht mehr als " + this.anzahlFahrzeuge + " erlaubt.");
-      }
+      // Der ArrayList wird ein Fahrzeug hinzugefügt
    }
 
    public void addFahrzeug(int position, Fahrzeug fahrzeug)
    {
-      try {
-         if(position <= this.anzahlFahrzeuge) {
-            this.fahrzeugListe.set(position-1, fahrzeug);
-            System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + position + " gesetzt.");
-         } else {
-            System.err.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
-         }
-      } catch (IndexOutOfBoundsException e){
-         System.err.println("Index existiert (noch) nicht. Versuche lieber 'addFahrzeug(Fahrzeug fahrzeug)';");
-      }
+      // Der ArrayList wird ein Fahrzeug an einer bestimmten Position hinzugefügt/ersetzt
    }
     
 }
 ````
+
+ArrayLists sind sehr dynamisch. Daher ist es hier erforderlich, einen Algorithmus zu entwickeln,
+der die maximal mögliche Anzahl der Einträge steuert. Die Manipulation der Einträge ist
+dagegen äußerst einfach.

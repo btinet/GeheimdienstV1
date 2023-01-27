@@ -5,25 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agent {
- // Deklaration von Attributen
-    private String name;
-    private String vorname;
-    private int agentenNr;
 
+    // Deklaration von Attributen
+    protected String name;
+
+    protected String vorname;
+
+    protected int agentenNr;
+
+    protected Boolean aktiv;
 
     // Definiere Anzahl der maximalen Fahrzeuge
     private final int anzahlFahrzeuge = 2;
 
     // Liste der Fahrzeugobjekte
     protected ArrayList<Fahrzeug> fahrzeugListe = new ArrayList<>();
- 
     
     // Konstruktor (einer oder mehrere (Überladen von Methoden))
     public Agent() {
         // Initialisieren der Attribute (erstmalige Zuweisung eines Wertes)
         this.name = "Bond";
         this.agentenNr = 7;
-           
     }
     
     public Agent(int agentenNr){
@@ -73,17 +75,17 @@ public class Agent {
      * @param fahrzeug Fahrzeug, dass der Liste hinzugefügt werden soll.
      */
     public void addFahrzeug(int position, Fahrzeug fahrzeug) {
+        position--;
         try {
             if(position <= this.anzahlFahrzeuge) {
-                this.fahrzeugListe.set(position-1, fahrzeug);
-                System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + position + " gesetzt.");
+                this.fahrzeugListe.set(position, fahrzeug);
+                System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + (position+1) + " gesetzt.");
             } else {
                 System.err.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
             }
         } catch (IndexOutOfBoundsException e){
             System.err.println("Index existiert (noch) nicht. Versuche lieber 'addFahrzeug(Fahrzeug fahrzeug)';");
         }
-
     }
 
     /**
@@ -91,9 +93,10 @@ public class Agent {
      * @param position Position, an der ein Fahrzeug entfernt werden soll.
      */
     public void removeFahrzeug(int position) {
+        position--;
         if(position >= 0 && position <= this.fahrzeugListe.size())
         {
-            System.out.println("Fahrzeug mit dem Kennzeichen '" + this.fahrzeugListe.get(position).getKennzeichen() + "' an Position " + position + " entfernt.");
+            System.out.println("Fahrzeug mit dem Kennzeichen '" + this.fahrzeugListe.get(position).getKennzeichen() + "' an Position " + (position+1) + " entfernt.");
             this.fahrzeugListe.remove(position);
         }
         else
@@ -142,4 +145,13 @@ public class Agent {
     public void setAgentenNr(int agentenNr) {
         this.agentenNr = agentenNr;
     }
+
+    public Boolean isAktiv() {
+        return aktiv;
+    }
+
+    public void setAktiv(Boolean aktiv) {
+        this.aktiv = aktiv;
+    }
+
 }
