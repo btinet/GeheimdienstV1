@@ -355,6 +355,8 @@ Welcher Datentyp wäre besser geeignet und warum?
 
 Gibt es weitere Möglichkeiten?
 
+**Im Folgenden einmal zwei Vorschläge**:
+
 ### Variante A
 
 ````java
