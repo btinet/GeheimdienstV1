@@ -362,6 +362,12 @@ Gibt es weitere Möglichkeiten?
 public class Agent
 {
    protected Fahrzeug[] fahrzeugListe = new Fahrzeug[2];
+   
+   public void setFahrzeug(int position, Fahrzeug fahrzeug)
+   {
+       // Der Sammlung wird am index x ein Fahrzeug hinzugefügt
+       this.fahrzeugListe[position] = fahrzeug;
+   }
 }
 ````
 
@@ -399,4 +405,10 @@ Parameter erwartet. ``JAVA`` unterscheidet nämlich nicht zwischen Methodennamen
 sondern zieht den gesamten Methoden-Kopf zum Vergleich heran.
 
 Genau dieses mehrfache Vergeben von Methodennamen nennen wir auch **Überladen von Methoden**.
-Durch das Überladen von Methoden schaffen...
+Durch das Überladen von Methoden schaffen uns eine Möglichkeit, mit optionalen Parametern zu arbeiten.
+
+In Variante B können wir quasi derselben Methode entweder nur ein Fahrzeug, oder ein Fahrzeug sowie
+eine Zahl als Positionsparameter übergeben.
+
+Variante A allerdings benötigt aufgrund der Struktur des Datentyps immer beides: Das Objekt
+und eine Zahl, die sagt, welchem Index dieses Objekt zugeordnet werden soll.
