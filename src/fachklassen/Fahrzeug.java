@@ -42,7 +42,7 @@ public class Fahrzeug {
         this.verbrauch = verbrauch;
         
         // Das Zubehoer-Objekt wird (NUR) als Teil des Fahrzeug-Objektes instanziert.
-         this.zubehoer[zIndex] = new Zubehoer(bezeichner, marke, preis);
+         this.zubehoer[zIndex-1] = new Zubehoer(bezeichner, marke, preis);
          // Alternativ: this.createZubehoer(bezeichner, marke, preis);
     }
 
@@ -61,7 +61,17 @@ public class Fahrzeug {
     // Alternative: Methode zum Erzeugen eines Zubehoer-Objektes
     // Aufruf im Konstruktor des Fahrzeug-Objektes
     public void createZuebehoer(String bezeichner, String marke, double preis, int zIndex){
-        this.zubehoer[zIndex] = new Zubehoer(bezeichner, marke, preis);
+        this.zubehoer[zIndex-1] = new Zubehoer(bezeichner, marke, preis);
     }
+
+    public Zubehoer[] getZubehoer() {
+        return zubehoer;
+    }
+    
+    public Zubehoer getZubehoer(int zIndex) {
+        return zubehoer[zIndex-1];
+    }
+    
+    
     
 }
