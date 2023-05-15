@@ -19,7 +19,7 @@ public class Fahrzeug {
         this.verbrauch = verbrauch;
     }
     
-    /* Aggregation zwischen Fahrzeug-Objekt und Zebehoer-Objekt
+    /* Aggregation zwischen Fahrzeug-Objekt und Zebehoer-Objekt.
      Der Konstruktor des Fahrzeug-Objektes erwartet als einen Parameter 
     ein bereits existierendes Zubehoer-Objekt
         */
