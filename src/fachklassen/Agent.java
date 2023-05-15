@@ -46,6 +46,7 @@ public class Agent {
      * @return Gibt ein Fahrzeug-Objekt zurück.
      */
     public Fahrzeug getFahrzeug(int position) {
+        position--;
         return this.fahrzeugListe.get(position);
     }
 
@@ -65,7 +66,7 @@ public class Agent {
         }
         else
         {
-            System.err.println("Der Fuhrpark ist voll. Nicht mehr als " + this.anzahlFahrzeuge + " erlaubt.");
+            System.out.println("Der Fuhrpark ist voll. Nicht mehr als " + this.anzahlFahrzeuge + " erlaubt.");
         }
     }
 
@@ -81,10 +82,10 @@ public class Agent {
                 this.fahrzeugListe.set(position, fahrzeug);
                 System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + (position+1) + " gesetzt.");
             } else {
-                System.err.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
+                System.out.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
             }
         } catch (IndexOutOfBoundsException e){
-            System.err.println("Index existiert (noch) nicht. Versuche lieber 'addFahrzeug(Fahrzeug fahrzeug)';");
+            System.out.println("Index existiert (noch) nicht. Versuche lieber 'addFahrzeug(Fahrzeug fahrzeug)';");
         }
     }
 
