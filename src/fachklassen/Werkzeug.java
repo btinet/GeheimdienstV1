@@ -10,4 +10,8 @@ package fachklassen;
  */
 public class Werkzeug {
     
+    public Werkzeug() {
+        
+    }
+    
 }
