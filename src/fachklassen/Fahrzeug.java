@@ -11,7 +11,7 @@ public class Fahrzeug {
    private int verbrauch; //pro 100 km
    
    //Refererenzattribut für Objektbeziehung (egal, welcher Art)
-   private Zubehoer zubehoer;
+   private Zubehoer[] zubehoer = new Zubehoer[5];
 
     public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch) {
         this.kennzeichen = kennzeichen;
@@ -24,7 +24,7 @@ public class Fahrzeug {
     ein bereits existierendes Zubehoer-Objekt
         */
     
-    public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch, Zubehoer zubehoer) {
+    public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch, Zubehoer[] zubehoer) {
         this.kennzeichen = kennzeichen;
         this.tankvolumen = tankvolumen;
         this.verbrauch = verbrauch;
@@ -36,13 +36,13 @@ public class Fahrzeug {
     zusätzlich die Parameter zum Erzeugen eines Zubehoer-Objektes.
     */
     
-    public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch, String bezeichner, String marke, double preis) {
+    public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch, String bezeichner, String marke, double preis, int zIndex) {
         this.kennzeichen = kennzeichen;
         this.tankvolumen = tankvolumen;
         this.verbrauch = verbrauch;
         
         // Das Zubehoer-Objekt wird (NUR) als Teil des Fahrzeug-Objektes instanziert.
-         this.zubehoer = new Zubehoer(bezeichner, marke, preis);
+         this.zubehoer[zIndex] = new Zubehoer(bezeichner, marke, preis);
          // Alternativ: this.createZubehoer(bezeichner, marke, preis);
     }
 
@@ -60,8 +60,8 @@ public class Fahrzeug {
     
     // Alternative: Methode zum Erzeugen eines Zubehoer-Objektes
     // Aufruf im Konstruktor des Fahrzeug-Objektes
-    public void createZuebehoer(String bezeichner, String marke, double preis){
-        this.zubehoer = new Zubehoer(bezeichner, marke, preis);
+    public void createZuebehoer(String bezeichner, String marke, double preis, int zIndex){
+        this.zubehoer[zIndex] = new Zubehoer(bezeichner, marke, preis);
     }
     
 }
