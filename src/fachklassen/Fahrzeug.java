@@ -11,6 +11,7 @@ public class Fahrzeug {
    private int verbrauch; //pro 100 km
    
    //Refererenzattribut für Objektbeziehung (egal, welcher Art)
+   // Zubehör ist jetzt eine Sammlung von 5 Schubladen
    private Zubehoer[] zubehoer = new Zubehoer[5];
 
     public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch) {
