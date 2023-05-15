@@ -9,9 +9,9 @@ package fachklassen;
  * @author BenjaminWagner
  */
 public class Werkzeug {
-    
+
     public Werkzeug() {
-        
+
     }
-    
+
 }
