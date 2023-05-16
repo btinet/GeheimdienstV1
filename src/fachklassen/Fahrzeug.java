@@ -7,7 +7,7 @@ package fachklassen;
 public class Fahrzeug {
 
     // Attribute
-    final private String kennzeichen;
+    final private String[] kennzeichen = new String[5];
     final private int tankvolumen;
     final private int verbrauch; //pro 100 km
 
@@ -16,7 +16,7 @@ public class Fahrzeug {
     private Zubehoer[] zubehoer = new Zubehoer[5];
 
     public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch) {
-        this.kennzeichen = kennzeichen;
+        this.kennzeichen[0] = kennzeichen;
         this.tankvolumen = tankvolumen;
         this.verbrauch = verbrauch;
     }
@@ -26,7 +26,7 @@ public class Fahrzeug {
     ein bereits existierendes Zubehoer-Objekt
      */
     public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch, Zubehoer[] zubehoer) {
-        this.kennzeichen = kennzeichen;
+        this.kennzeichen[0] = kennzeichen;
         this.tankvolumen = tankvolumen;
         this.verbrauch = verbrauch;
         this.zubehoer = zubehoer;
@@ -37,7 +37,7 @@ public class Fahrzeug {
     zusätzlich die Parameter zum Erzeugen eines Zubehoer-Objektes.
      */
     public Fahrzeug(String kennzeichen, int tankvolumen, int verbrauch, String bezeichner, String marke, double preis, int zIndex) {
-        this.kennzeichen = kennzeichen;
+        this.kennzeichen[0] = kennzeichen;
         this.tankvolumen = tankvolumen;
         this.verbrauch = verbrauch;
 
@@ -45,9 +45,43 @@ public class Fahrzeug {
         this.zubehoer[zIndex - 1] = new Zubehoer(bezeichner, marke, preis);
         // Alternativ: this.createZubehoer(bezeichner, marke, preis);
     }
+    
+     public void addKennzeichen(String zeichen) {
+         
+        int pos = 0;       
+        for(String kfz : this.kennzeichen) {
+            if(kfz == null) {
+                this.kennzeichen[pos] = zeichen;
+                // kfz = zeichen;                 
+                break;
+            }   
+            pos++;
+        }
+        
+        if(this.kennzeichen.length == pos) {
+            int i;
+            for (i = 0; i < 4; i++) {
+                this.kennzeichen[i] = this.kennzeichen[i+1];           
+            }
+            this.kennzeichen[i] = zeichen;
+        }
+    }
 
+    public String getKennzeichen(int index) {
+        return kennzeichen[index];
+    }
+    
+    public String[] getAllKennzeichen() {        
+        return this.kennzeichen;
+    }
+    
     public String getKennzeichen() {
-        return kennzeichen;
+        for (String kfz : this.kennzeichen) {
+            if (kfz != null) {
+                return kfz;
+            }
+        }
+        return null;
     }
 
     public int getTankvolumen() {

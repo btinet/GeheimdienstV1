@@ -36,6 +36,65 @@ public class Start {
 
         agent007.getFahrzeug(1).createZuebehoer("UKW-Radio", "Blaupunkt", 99.95, 1);
         agent007.getFahrzeug(2).createZuebehoer("CD-Spieler", "Bohse", 499.95, 3);
+        
+        System.out.println("Kennzeichen ändern");
+        Fahrzeug kfz1 = agent007.getFahrzeug(1);
+        
+        System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
+        
+        System.out.println("Kennzeichen ABCD");        
+        kfz1.addKennzeichen("ABCD");        
+       System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
+        
+        System.out.println("Kennzeichen 1234");
+        kfz1.addKennzeichen("1234");
+        System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
+        
+        System.out.println("Kennzeichen xxx");
+        kfz1.addKennzeichen("xxx");
+        System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
+        
+        System.out.println("Kennzeichen yyy");
+        kfz1.addKennzeichen("yyy");
+        System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
+        
+        System.out.println("Kennzeichen xyz, def und 456");
+        kfz1.addKennzeichen("xyz");
+        kfz1.addKennzeichen("def");
+        kfz1.addKennzeichen("456");
+        System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
+        
+        System.out.println("Kennzeichen gulu");
+        kfz1.addKennzeichen("gulu");
+        System.out.println("--------------------");
+        for(String zeichen : kfz1.getAllKennzeichen()) {
+            System.out.println("Kennzeichen: " + zeichen);
+        }
+        System.out.println("====================");
 
         for (Fahrzeug fahrzeug : bondFahrzeuge) {
             System.out.println("Bond hat Fahrzeug mit Kennzeichen: " + fahrzeug.getKennzeichen());
