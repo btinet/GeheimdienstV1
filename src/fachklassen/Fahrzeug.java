@@ -77,18 +77,24 @@ public class Fahrzeug {
         }
     }
 
-    public String getKennzeichen(int index) {
-        return kennzeichen[index];
-    }
-    
     public String[] getAllKennzeichen() {        
         return this.kennzeichen;
     }
+
+    public String getKennzeichen(int index) {
+        if(index >= 0 && index < this.kennzeichen.length) {
+            return kennzeichen[index];
+        } else {
+            System.out.printf("Index '%s' außerhalb des Intervalls [%s,%s]!%n",index,0,this.kennzeichen.length-1);
+            return null;
+        }
+
+    }
     
     public String getKennzeichen() {
-        for (String kfz : this.kennzeichen) {
-            if (kfz != null) {
-                return kfz;
+        for (int i = this.kennzeichen.length-1; i >= 0; i--) {
+            if (kennzeichen[i] != null) {
+                return kennzeichen[i];
             }
         }
         return null;

@@ -38,11 +38,15 @@ public class Start {
         
         System.out.println("Kennzeichen ändern");
         Fahrzeug kfz1 = agent007.getFahrzeug(1);
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         
         System.out.println("--------------------");
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
         
         System.out.println("Kennzeichen ABCD");        
@@ -51,6 +55,8 @@ public class Start {
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
         
         System.out.println("Kennzeichen 1234");
@@ -59,6 +65,8 @@ public class Start {
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
         
         System.out.println("Kennzeichen xxx");
@@ -67,6 +75,8 @@ public class Start {
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
         
         System.out.println("Kennzeichen yyy");
@@ -75,6 +85,8 @@ public class Start {
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
         
         System.out.println("Kennzeichen xyz, def und 456");
@@ -85,6 +97,8 @@ public class Start {
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
         
         System.out.println("Kennzeichen gulu");
@@ -93,7 +107,11 @@ public class Start {
         for(String zeichen : kfz1.getAllKennzeichen()) {
             System.out.println("Kennzeichen: " + zeichen);
         }
+        System.out.println("--------------------");
+        System.out.printf("Aktuelles Kennzeichen: %s%n",kfz1.getKennzeichen());
         System.out.println("====================");
+
+        kfz1.getKennzeichen(5);
 
         for (Fahrzeug fahrzeug : bondFahrzeuge) {
             System.out.println("Bond hat Fahrzeug mit Kennzeichen: " + fahrzeug.getKennzeichen());
