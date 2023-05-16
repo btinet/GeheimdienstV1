@@ -16,5 +16,9 @@ public class Werkzeug {
         // Noch ein Kommentar
         
     }
+    
+    public void testen() {
+        System.out.println("Dies ist ein Test");
+    }
 
 }
