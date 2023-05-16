@@ -12,6 +12,9 @@ public class Werkzeug {
 
     public Werkzeug() {
 
+        // Testkommentar
+        // Noch ein Kommentar
+        
     }
 
 }
