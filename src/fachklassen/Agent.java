@@ -36,7 +36,7 @@ public class Agent {
         this.agentenNr = agentenNr;
     }
 
-    //Methoden
+    //Methoden    
     /**
      *
      * @param position Position, von der ein Fahrzeug zurückgegeben werden soll.
@@ -58,6 +58,7 @@ public class Agent {
     public void addFahrzeug(Fahrzeug fahrzeug) {
         if (this.fahrzeugListe.size() < this.anzahlFahrzeuge) {
             this.fahrzeugListe.add(fahrzeug);
+            // TODO: getKennzeichen mit letztem Eintrag ausgeben!
             System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' dem Fuhrpark von " + this.getName() + " hinzugefügt.");
         } else {
             System.out.println("Der Fuhrpark ist voll. Nicht mehr als " + this.anzahlFahrzeuge + " erlaubt.");
