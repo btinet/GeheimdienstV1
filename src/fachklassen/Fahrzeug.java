@@ -32,7 +32,7 @@ public class Fahrzeug {
         this.zubehoer = zubehoer;
     }
 
-    /* Kompostion zwischen Fahrzeug-Objekt und Zubehoer-Objekt.
+    /** Komposition zwischen Fahrzeug-Objekt und Zubehoer-Objekt.
     Der Konstruktor des Fahrzeug-Objektes erwartet neben den Fahrzeug-Paramtern 
     zusätzlich die Parameter zum Erzeugen eines Zubehoer-Objektes.
      */
@@ -47,21 +47,31 @@ public class Fahrzeug {
     }
     
      public void addKennzeichen(String zeichen) {
-         
-        int pos = 0;       
-        for(String kfz : this.kennzeichen) {
-            if(kfz == null) {
-                this.kennzeichen[pos] = zeichen;
-                // kfz = zeichen;                 
-                break;
-            }   
-            pos++;
-        }
+
+        /* Version mit for each-Schleife
+        *
+        *  int pos = 0;
+        *  for(String kfz : this.kennzeichen) {
+        *      if(kfz == null) {
+        *          this.kennzeichen[pos] = zeichen;
+        *          break;
+        *      }
+        *      pos++;
+        *  }
+        */
+
+         int pos;
+         for(pos = 0; pos < this.kennzeichen.length; pos++) {
+             if(this.kennzeichen[pos] == null) {
+                 this.kennzeichen[pos] = zeichen;
+                 break;
+             }
+         }
         
         if(this.kennzeichen.length == pos) {
             int i;
-            for (i = 0; i < 4; i++) {
-                this.kennzeichen[i] = this.kennzeichen[i+1];           
+            for (i = 0; i < this.kennzeichen.length-1; i++) {
+                this.kennzeichen[i] = this.kennzeichen[i+1];
             }
             this.kennzeichen[i] = zeichen;
         }

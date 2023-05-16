@@ -12,13 +12,12 @@ import java.util.ArrayList;
  * @author fass
  */
 public class Start {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
-        // Erzeugen (Instanzieren) eines Objektes durch folgende Anweisung
+        // Erzeugen (Instantiieren) eines Objektes durch folgende Anweisung
         // Klasse Objektbezeichner = new Konstruktor (Parameterliste)
         Agent agent007 = new Agent();
 
