@@ -114,7 +114,10 @@ public class Start {
         kfz1.getKennzeichen(5);
 
         for (Fahrzeug fahrzeug : bondFahrzeuge) {
+            fahrzeug.setTankvolumen(100);
+
             System.out.println("Bond hat Fahrzeug mit Kennzeichen: " + fahrzeug.getKennzeichen());
+            System.out.printf("Sein Tank hat ein Volumen von %s Litern.%n",fahrzeug.getTankvolumen());
             int i = 1;
             for (Zubehoer zubehoer : fahrzeug.getZubehoer()) {
                 if (zubehoer != null) {
