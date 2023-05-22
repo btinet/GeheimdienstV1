@@ -8,8 +8,8 @@ public class Fahrzeug {
 
     // Attribute
     final private String[] kennzeichen = new String[5];
-    final private int tankvolumen;
-    final private int verbrauch; //pro 100 km
+    private int tankvolumen;
+    private int verbrauch; //pro 100 km
 
     //Refererenzattribut für Objektbeziehung (egal, welcher Art)
     // Zubehör ist jetzt eine Sammlung von 5 Schubladen
@@ -100,8 +100,16 @@ public class Fahrzeug {
         return null;
     }
 
+    public void setTankvolumen(int tankvolumen) {
+        this.tankvolumen = tankvolumen;
+    }
+
     public int getTankvolumen() {
         return tankvolumen;
+    }
+
+    public void setVerbrauch (int verbrauch) {
+        this.verbrauch = verbrauch;
     }
 
     public int getVerbrauch() {
