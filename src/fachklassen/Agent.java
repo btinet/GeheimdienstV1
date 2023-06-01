@@ -2,37 +2,22 @@ package fachklassen;
 
 import java.util.ArrayList;
 
-public class Agent {
+public abstract class Agent {
 
     // Deklaration von Attributen
-    protected String name;
-
-    protected String vorname;
-
     protected int agentenNr;
 
     protected Boolean aktiv;
 
     // Definiere Anzahl der maximalen Fahrzeuge
-    private final int anzahlFahrzeuge = 2;
+    protected int anzahlFahrzeuge = 0;
 
     // Liste der Fahrzeugobjekte
     protected ArrayList<Fahrzeug> fahrzeugListe = new ArrayList<>();
 
-    // Konstruktor (einer oder mehrere (Überladen von Methoden))
-    public Agent() {
-        // Initialisieren der Attribute (erstmalige Zuweisung eines Wertes)
-        this.name = "Bond";
-        this.agentenNr = 7;
-    }
+    // Konstruktor
 
     public Agent(int agentenNr) {
-        this.agentenNr = agentenNr;
-    }
-
-    public Agent(String nachname, int agentenNr) {
-
-        this.name = nachname;
         this.agentenNr = agentenNr;
     }
 
@@ -44,7 +29,12 @@ public class Agent {
      */
     public Fahrzeug getFahrzeug(int position) {
         position--;
+        try {
         return this.fahrzeugListe.get(position);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index existiert nicht.");
+        }
+        return null;
     }
 
     public ArrayList<Fahrzeug> getFahrzeugeAsList() {
@@ -58,7 +48,7 @@ public class Agent {
     public void addFahrzeug(Fahrzeug fahrzeug) {
         if (this.fahrzeugListe.size() < this.anzahlFahrzeuge) {
             this.fahrzeugListe.add(fahrzeug);
-            System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' dem Fuhrpark von " + this.getName() + " hinzugefügt.");
+            System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' dem Fuhrpark von " + this.getAgentenNr() + " hinzugefügt.");
         } else {
             System.out.println("Der Fuhrpark ist voll. Nicht mehr als " + this.anzahlFahrzeuge + " erlaubt.");
         }
@@ -74,7 +64,7 @@ public class Agent {
         try {
             if (position <= this.anzahlFahrzeuge) {
                 this.fahrzeugListe.set(position, fahrzeug);
-                System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getName() + " an Position " + (position + 1) + " gesetzt.");
+                System.out.println("Fahrzeug mit dem Kennzeichen '" + fahrzeug.getKennzeichen() + "' im Fuhrpark von " + this.getAgentenNr() + " an Position " + (position + 1) + " gesetzt.");
             } else {
                 System.out.println("Maximale Position darf nicht größer als " + this.anzahlFahrzeuge + " sein.");
             }
@@ -89,11 +79,15 @@ public class Agent {
      */
     public void removeFahrzeug(int position) {
         position--;
-        if (position >= 0 && position <= this.fahrzeugListe.size()) {
-            System.out.println("Fahrzeug mit dem Kennzeichen '" + this.fahrzeugListe.get(position).getKennzeichen() + "' an Position " + (position + 1) + " entfernt.");
-            this.fahrzeugListe.remove(position);
-        } else {
-            System.out.println("An Position " + position + " befindet sich kein Fahrzeug.");
+        try {
+            if (position >= 0 && position <= this.fahrzeugListe.size()) {
+                System.out.println("Fahrzeug mit dem Kennzeichen '" + this.fahrzeugListe.get(position).getKennzeichen() + "' an Position " + (position + 1) + " entfernt.");
+                this.fahrzeugListe.remove(position);
+            } else {
+                System.out.println("An Position " + position + " befindet sich kein Fahrzeug.");
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Kein Fahrzeug an dieser Stelle vorhanden.");
         }
     }
 
@@ -111,22 +105,6 @@ public class Agent {
      */
     public int getMaxAnzahlFahrzeuge() {
         return this.anzahlFahrzeuge;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getVorname() {
-        return vorname;
-    }
-
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
     }
 
     public int getAgentenNr() {
