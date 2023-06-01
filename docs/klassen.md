@@ -2,6 +2,8 @@
 
 ## Inhalt
 
+[Zur Übersicht](../README.MD)
+
 1. [Klassenkopf](#klassenkopf)
 2. [Klassenkörper](#klassenkrper)
 3. [Attribute](#attribute)
@@ -10,6 +12,10 @@
    2. [Auftrag](#auftrag)
    3. [Anfrage](#anfrage)
 5. [Überladen von Methoden](#method-overloading)
+
+Weitere Themen:
+
+1. [Vererbung](./klassen.vererbung.md)
 
 Jede Java Klasse besteht aus einem Klassenkopf und einem Klassenkörper.
 
